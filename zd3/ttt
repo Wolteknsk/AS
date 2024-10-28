@@ -1,0 +1,39 @@
+#!/bin/bash
+
+add_grades() {
+ local course_dir="$1"
+ local num_students="$2"
+ local grades_file="$course_dir/Оценки.txt"
+
+ for i in $(seq 1 $num_students); do
+  read -p "Студент $i: " student_name
+
+  read -p "Оценка для $student_name: " grade
+  echo "$student_name: $grade" >> "$grades_file"
+ done
+
+ echo "Оценки добавлены в файл '$grades_file'."
+}
+
+while true; do
+ read -p "Укажите название курса: " course_name
+
+ if [ ! -d "$course_name" ]; then
+  mkdir -p "$course_name"
+  mkdir -p "$course_name/Студенты"
+  touch "$course_name/Оценки.txt"
+  echo "Папка '$course_name' создана."
+ fi
+
+ read -p "Сколько студентов в группе? " num_students
+
+ 
+ add_grades "$course_name" "$num_students"
+ read -p "Добавить еще один курс? (да/нет): " answer
+ if [ "$answer" != "да" ]; then
+  break
+ fi
+done
+
+echo "Завершение работы скрипта."
+
