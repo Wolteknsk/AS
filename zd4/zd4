@@ -1,0 +1,84 @@
+#!/bin/bash
+
+# Запрашиваем имя пользователя
+read -p "Введите имя пользователя: " USERNAME
+
+mkdir -p ~/users/"$USERNAME"
+
+cd ~/users/"$USERNAME"
+git init
+
+mkdir photos
+
+for year in {2020..2024}; do
+ mkdir "photos/$year"
+ touch "photos/$year/default.png"
+done
+
+git add .
+git commit -m "Initial commit - photos"
+
+mkdir videos
+
+
+for year in {2020..2024}; do
+ mkdir "videos/$year"
+ touch "videos/$year/default.mp4"
+done
+
+git add .
+git commit -m "Initial commit - videos"
+
+mkdir documents
+
+for year in {2020..2024}; do
+ mkdir "documents/$year"
+ touch "documents/$year/default.doc"
+done
+
+git add .
+git commit -m "Initial commit - documents"
+
+echo "Структура папок для пользователя '$USERNAME' создана успешно!"
+#!/bin/bash
+
+# Запрашиваем имя пользователя
+read -p "Введите имя пользователя: " USERNAME
+
+mkdir -p ~/users/"$USERNAME"
+
+cd ~/users/"$USERNAME"
+git init
+
+mkdir photos
+
+for year in {2020..2024}; do
+ mkdir "photos/$year"
+ touch "photos/$year/default.png"
+done
+
+git add .
+git commit -m "Initial commit - photos"
+
+mkdir videos
+
+
+for year in {2020..2024}; do
+ mkdir "videos/$year"
+ touch "videos/$year/default.mp4"
+done
+
+git add .
+git commit -m "Initial commit - videos"
+
+mkdir documents
+
+for year in {2020..2024}; do
+ mkdir "documents/$year"
+ touch "documents/$year/default.doc"
+done
+
+git add .
+git commit -m "Initial commit - documents"
+
+echo "Структура папок для пользователя '$USERNAME' создана успешно!"
